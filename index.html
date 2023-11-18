@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="de">
+ <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width" name="viewport"  user-scalable="no">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>GuMo</title>
+ </head>
+ <body>
+    <!-- the overlay and horizontal pattern -->
+    <div id="crt" class="off" onClick="handleClick(event)">
+        <!-- slowly moving scanline -->
+        <div class="scanline"></div>
+        <!-- the input and output -->
+        <div id="terminal" class="terminal">
+            
+        </div>
+    </div>
+ </body>
+   <script src="javascript/io.js"></script>
+   <script src="javascript/cli.js"></script>
+   <script src="javascript/boot.js"></script>
+   <script src="javascript/main.js"></script>
+</html>

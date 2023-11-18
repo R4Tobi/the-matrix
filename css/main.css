@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: #a5a5a5;
+    color: #00ff00;
+    font-family:'Courier New', Courier, monospace;
+    padding: 0;
+    margin: 0;
+}
+
+#crt{
+    animation: flicker .09s infinite;
+    padding: 50px;
+    font-size: 32px;
+    background: #002007;
+    min-height: 100vh;
+}
+
+#crt:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(rgba(0,32,1,0) 50%,rgba(0,0,0,.25) 0),linear-gradient(90deg,rgba(255,0,0,.06),rgba(0,255,0,.02),rgba(0,0,255,.06));
+    background-size: 100% 2px,3px 100%;
+    text-shadow: 2px 2px black, -2px -2px black, -2px 2px black, 2px -2px black;
+}
+
+#crt::after{
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: rgba(0,32,1,.1);
+    opacity: 0;
+    animation: flicker .15s infinite;
+}
+
+@keyframes textShadow {
+  0% {
+    text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  5% {
+    text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+}
+
+@keyframes flicker {
+	0%{
+        opacity: 1;
+    }
+    1%{
+        opacity: 0.98;
+    }
+    10%{
+        opacity: 0.98;
+    }
+    11%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes cursor {
+  0%   { opacity: 1; }
+  47%  { opacity: 1; }
+  50%  { opacity: 0; }
+  97%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.scanline {
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 8;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 255, 255, 0.2) 10%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 5s linear infinite;
+}
+
+@keyframes scanline {
+    0% {
+        bottom: 100%;
+    }
+    80% {
+        bottom: 100%;
+    }
+    100% {
+        bottom: 0%;
+    }
+}
+
+#input {
+    position: relative;
+    caret-color: transparent;
+    padding-left: 70px;
+    background: rgba(0,0,0,0);
+}
+/* Puts a blinking square after the content as replacement for caret */
+#input[contenteditable="true"]:after {
+    content: "_";
+    background: #00ff00;
+    animation: cursor 1s infinite;
+    animation-timing-function: step-end;
+    margin-left: 1px;
+}
+/* Inserts the > before terminal input */
+#input:before {
+    content: "$>";
+    position: absolute;
+    padding-left: 1.5rem;
+    left: 0;
+}
