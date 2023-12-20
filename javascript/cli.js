@@ -31,7 +31,9 @@ async function runCli(granted) {
   ];
   var outD = [
     "<br>",
-    "<span style='color: red'>Access Denied</span>",
+    "<span style='color: red'>",
+    "Access Denied",
+    "</span>",
     "<br>",
     "<br>",
     " > SET TERMINAL/LOGON",
@@ -70,6 +72,17 @@ async function handleCmd(event) {
 async function execute(cmd) {
   var cmdArr = cmd.split(" ");
   switch (cmdArr[0].toLowerCase()) {
+    case "help": {
+      await sout([
+        "barselouna",
+        "<br>",
+        "freddy",
+        "<br>",
+        "bober"
+      ],
+      350);
+      break;
+    }
     case "barselouna": {
       await sout(
         [
@@ -94,6 +107,33 @@ async function execute(cmd) {
         ],
         350
       );
+      break;
+    }
+    case "freddy":{
+      await sout([
+        "ITZ FREDDY FAZBEAR",
+        "<br>",
+        "Urr", "uRr", "uRR", "UrR", "Urr", "URr", "URR", "urr", "Urr"
+      ],200);
+      break;
+    }
+    case "bober":{
+      var bober = `
+  ja pierdolę patrzcie co spotkałem!§ bóbr kurwa!§ ja pierdolę!§ jakie bydlę!§ bober!§ ej, kurwa, bober!§ bober, nie spierdalaj, mordo!§
+  <br>§
+                                              A§<br>§
+                ___                          / \\§<br>§
+              .="   "=._.---.               /   \\              ____________§<br>§
+            ."         c ' Y''p            /     \\            /)  -§<br>§
+          /     \\     '\\  w_/             :~~~~~~~:          / )-   .   -§<br>§
+          |      )  /     /               |       |         <  )      -- §<br>§
+    ______|     /__-\\ \\_=.\\               |       |          \\ )  -      -§<br>§
+    (XXXXX/''------)))'=-'\"''\"___________/__/__\\___\\___ _ _ _ \\)___________§<br>§
+`
+        .replaceAll(" ", "§&nbsp;§")
+        .split("§");
+      console.log(bober)
+      await sout(bober, );
       break;
     }
     default: {

@@ -57,23 +57,22 @@ async function login(event, pw, type) {
   }
 }
 
-async function sout(content, t = 150) {
+async function sout(content, t = 50) {
   var terminal = document.getElementById("terminal");
   for (let i = 0; i < content.length; i++) {
     time = Math.random() * 50 + t;
-    await pause(time);
     if (content[i] == "clear") {
       await pause(2000);
       clear();
     } else if (content[i] == "input") {
       input(true, "login");
-    } else if (content[i] == "<br>" || content[i] == "&nbsp;") {
+    } else if (content[i].startsWith("<") || content[i] == "&nbsp;") {
       console.log(content[i]);
       terminal.innerHTML += content[i];
     } else {
       let cnt = content[i].split("");
       for (let j = 0; j < cnt.length; j++) {
-        await pause(25);
+        await pause(time);
         terminal.innerHTML += cnt[j];
       }
     }
@@ -82,6 +81,7 @@ async function sout(content, t = 150) {
 
 function checkPass(pswd) {
   if (pswd == "Alex") {
+    clear();
     runCli(true);
   } else {
     runCli(false);
