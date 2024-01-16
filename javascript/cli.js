@@ -80,7 +80,7 @@ async function execute(cmd) {
         "<br>",
         "bober"
       ],
-      350);
+      10);
       break;
     }
     case "barselouna": {
@@ -105,7 +105,7 @@ async function execute(cmd) {
           "<br>",
           "<br>"
         ],
-        350
+        10
       );
       break;
     }
@@ -114,7 +114,7 @@ async function execute(cmd) {
         "ITZ FREDDY FAZBEAR",
         "<br>",
         "Urr", "uRr", "uRR", "UrR", "Urr", "URr", "URR", "urr", "Urr"
-      ],200);
+      ],10);
       break;
     }
     case "bober":{
